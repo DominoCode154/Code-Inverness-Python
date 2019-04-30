@@ -3,6 +3,7 @@ import random
 MasterNumList = []
 ImputList = []
 VerdictList = []
+Goodlist = [1,2,3,4,5,6,7,8]
 
 print ("Welcome to MasterMind, my friend!")
 
@@ -16,15 +17,32 @@ print ("If a number is right, % appears. If a number is nearly right, ? appears.
 
 while ImputList != MasterNumList:
     ImputList = []
+    imputnumber = 0
     VerdictList = []
+    tally = 0
 
     while len(ImputList) != len(MasterNumList):
         TempGuessImput = input("Pick a number between 1-8: ")
+        imputnumber = (imputnumber + 1)
+        for p in range (8):
+            if ImputList[(imputnumber)] != Goodlist[p]:
+                tally = (tally + 1)
+                if tally == 8:
+                    print ("That number isn't valid at ALL! :(")
+                    continue
         try:
             ImputList.append(int(TempGuessImput))
         except ValueError:
             print ("That guess isn't valid...!")
-            continue
+            break
+##    for o in range(4):
+##        for p in range (8):
+##            if ImputList[o] != Goodlist[p]:
+##                tally = (tally + 1)
+##                if tally == 8:
+##                    print ("That number isn't valid at ALL! :(")
+##                    break
+                        
 
     #for x in ImputList:
      #   print(x)
